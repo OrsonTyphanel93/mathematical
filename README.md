@@ -173,21 +173,18 @@ The stationary solution $e^{-V}$ now becomes $q_\theta(x)$! We've shown we can g
 - Parametrize and represent some transition kernel $T_{\delta t}(x_t, t | x_{t-1}; \theta)$ via a neural network
 - Pick some easy prior distribution like $p(x, t=0) = \mathcal{N}(0, 1)$ that will become our target distribution at long times $p_\text{data} = p(x, t\to\infty)$
 - Minimize KL divergence of $p_\text{data}(x)$ and $p_\theta(x)$. Use importance sampling to approximate the integrals in the path integral objective we gave.
-  - This is where differences appear. "Diffusion" is the surrogate distribution we use for importance sampling, hence the name!
-- Generate samples using the Langevin equation plus transition kernel!
 
 
 There exists a stationary solution found by setting $\partial_t p = 0$, which gives the equation $\mu p = \nabla D p => p \sim e^{\int  \mu / D}$. If we suppose there is some function such that $\mu = -\nabla V$ and if $D(x, t) = D = 2k_\text{B}T$, then we find the familiar Boltzmann distribution from physics $p_\text{eq} \sim e^{-V / k_\text{B}T}$. In other words, by cleverly setting $\mu(x, t) = -D \nabla ln q(x)$, we have produced an equation whose equilibrium solution will be the target distribution $q(x)$ for any $q(x)$.
 
+Coming soon .........!
 
-Thanks to @Jmkernes 
+Thanks to [@Jmkernes ](https://github.com/Jmkernes)
 
 Excellent sources!!
 [reference 1 ](https://physicallensonthecell.org/advanced-diffusion-and-fokker-planck-picture)
+
+
 [reference 2 ](https://www.youtube.com/watch?v=MmcgT6-lBoY)
 
 
-
-
-
-when the transition kernel is gaussian, the final and initial positions cancel out after reparametrization, leaving only the noise for the score to match on $\approx \sigma_t^2 s_\theta(x, t) = \epsilon$
