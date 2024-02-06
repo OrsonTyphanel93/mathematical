@@ -20,21 +20,16 @@ $$
 s_\theta(x) \equiv -\ln \nabla p(x) = \nabla E_\theta(x),
 $$
 
-which does not contain a pesky normalization constant. This is great, but how does it help us recover $p(x)$? Also, wouldn't optimizing this lead to some horrible Jacobian/second derivatives? Yes to the second. That's a big issue. That optimization objective also goes by the name of Fisher divergence (I think? might be getting the name wrong). Let's answer the first complaint though. It turns out, that there is an intimate relationship between the score and the distribution, which is related to the relationship between Langevin equations and Fokker-planck equations. The score $s(x)$ is like a Force that leads to a potential $p(x)$. We'll derive all of this later, but for now, let's leave the discussion here and think about a different approach to remove $Z$.
 
 ### Normalizing flow mentality
 
-The reason $Z$ is hard to find, is because $p(x)$ is an arbitrary, complicated, unconstrained function (neural nets are universal approximators! blah blah blah...). In this small section, we're going to give a preview of the idea behind diffusion models.
-
-Let's take a page out of the normalizing flows notebook, and try to make this problem tractable by making $p(x)$ simpler. Let's assume that $p(x) = N(x| \mu ,\Sigma)$. But wait... thats a pretty wild assumption right? Yeah, it is. It's a good thing we can take the usual physics approach though, and just find a limit where this isn't so crazy. It turns out that that's pretty easy to do actually. Let's introduce a new auxiliary parameter $t$, which we will call the "time". The function $p(x, t)$ has the following properties
+ Let's assume that $p(x) = N(x| \mu ,\Sigma)$. But wait... thats a pretty wild assumption right? Yeah, it is. It's a good thing we can take the usual physics approach though, and just find a limit where this isn't so crazy. It turns out that that's pretty easy to do actually. Let's introduce a new auxiliary parameter $t$, which we will call the "time". The function $p(x, t)$ has the following properties
 
 1. $p(x, t \to  0)$ is something easy to understand. Let's call it $N(x|0, 1)$
 
 2. $p(x, t \to  \infty)$ is exactly what we want, $p(x)$.
 
 3. There exists some transition kernel $T$ such that $p(x, t + \delta t) = \int dx' T_{\delta t}(x, x', t)p(x', t)$ (this is just the [chapman-kolmogorov equation](https://en.wikipedia.org/wiki/Chapman%E2%80%93Kolmogorov_equation))
-
-There's no loss of generality here, but you might question why make this problem harder. The reason, is that for small changes in times $\delta t$, we know that the transition kernel must become a delta function. And, since we can recover a delta function as the limit of a Gaussian with zero variance, there must some small window of time where the transition is basically Gaussian. And that's it. We'll need to iterate step (3) lots of times to get the answer that we want, but at least we've removed the normalization constant.
 
 
 ## Langevin, Fokker Planck, and Path integrals
@@ -172,21 +167,15 @@ The stationary solution $e^{-V}$ now becomes $q_\theta(x)$! We've shown we can g
 
 # Diffusion models
 
-We have all of the math background we need to derive our results now, and so for the remainder of these notes, we will dive into three main papers, chronologically:
-
 1. Sohl-Dickstein, Jascha, et al. "Deep unsupervised learning using nonequilibrium thermodynamics." _International Conference on Machine Learning_. PMLR, 2015. https://arxiv.org/abs/1503.03585
 2. Ho, Jonathan, Ajay Jain, and Pieter Abbeel. "Denoising diffusion probabilistic models." _Advances in Neural Information Processing Systems_ 33 (2020): 6840-6851. https://proceedings.neurips.cc/paper/2020/file/4c5bcfec8584af0d967f1ab10179ca4b-Paper.pdf
 3. Song, Yang, et al. "Score-based generative modeling through stochastic differential equations." _arXiv preprint arXiv:2011.13456_ (2020). https://arxiv.org/abs/2011.13456
-
-The first paper lays the foundation. It gives the following formula for building diffusion models.
 
 - Parametrize and represent some transition kernel $T_{\delta t}(x_t, t | x_{t-1}; \theta)$ via a neural network
 - Pick some easy prior distribution like $p(x, t=0) = \mathcal{N}(0, 1)$ that will become our target distribution at long times $p_\text{data} = p(x, t\to\infty)$
 - Minimize KL divergence of $p_\text{data}(x)$ and $p_\theta(x)$. Use importance sampling to approximate the integrals in the path integral objective we gave.
   - This is where differences appear. "Diffusion" is the surrogate distribution we use for importance sampling, hence the name!
 - Generate samples using the Langevin equation plus transition kernel!
-
-
 
 
 There exists a stationary solution found by setting $\partial_t p = 0$, which gives the equation $\mu p = \nabla D p => p \sim e^{\int  \mu / D}$. If we suppose there is some function such that $\mu = -\nabla V$ and if $D(x, t) = D = 2k_\text{B}T$, then we find the familiar Boltzmann distribution from physics $p_\text{eq} \sim e^{-V / k_\text{B}T}$. In other words, by cleverly setting $\mu(x, t) = -D \nabla ln q(x)$, we have produced an equation whose equilibrium solution will be the target distribution $q(x)$ for any $q(x)$.
