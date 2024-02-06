@@ -12,9 +12,9 @@ $$
 p(x) = \frac{e^{-E_\theta(x)}}{\int dx e^{-E_\theta(x)}} \implies  \ln p(x) = -E_\theta(x) - \ln  \int dx e^{-E_\theta(x)}
 $$
 
-We need to know $p(x)$ to calculate the update to compute $p(x)$! One way to approach this, is iteratively sample from the current $p(x)$, compute $E(x)$, sample, compute, sample, compute, ... until convergence. In any rate, it's probably not ideal.
+We need to know $p(x)$ to calculate the update to compute $p(x)$ One way to approach this, is iteratively sample from the current $p(x)$, compute $E(x)$, sample, compute, sample, compute, ... until convergence. In any rate, it's probably not ideal.
 
-There is an alternative though. Notice what happens if we instead try to solve for $\nabla_x p(x)$. The normalization disappears! This leads us to define the notion of the _score_
+There is an alternative though. Notice what happens if we instead try to solve for $\nabla_x p(x)$. The normalization disappears This leads us to define the notion of the _score_
 
 $$
 s_\theta(x) \equiv -\ln \nabla p(x) = \nabla E_\theta(x),
@@ -153,7 +153,6 @@ $$
 
 which is the desired result. We've shown that for every Langevin equation, there is an equivalent Fokker-Planck PDE that describes the dynamics of the distribution p(x,t). We now have a variety of representations to make use of!
 
-## The most important equation
 
 Now that we know the connection between Langevin and Fokker-Planck equations, consider what happens if we set the potential energy to $V(x) = -\ln q_\theta(x)$, and the diffusion constant to $D=1$. The corresponding Langevin equation would be:
 
@@ -179,6 +178,15 @@ The stationary solution $e^{-V}$ now becomes $q_\theta(x)$! We've shown we can g
 
 
 There exists a stationary solution found by setting $\partial_t p = 0$, which gives the equation $\mu p = \nabla D p => p \sim e^{\int  \mu / D}$. If we suppose there is some function such that $\mu = -\nabla V$ and if $D(x, t) = D = 2k_\text{B}T$, then we find the familiar Boltzmann distribution from physics $p_\text{eq} \sim e^{-V / k_\text{B}T}$. In other words, by cleverly setting $\mu(x, t) = -D \nabla ln q(x)$, we have produced an equation whose equilibrium solution will be the target distribution $q(x)$ for any $q(x)$.
+
+
+Thanks to @Jmkernes 
+
+Excellent sources!!
+[reference 1 ](https://physicallensonthecell.org/advanced-diffusion-and-fokker-planck-picture)
+[reference 2 ](https://www.youtube.com/watch?v=MmcgT6-lBoY)
+
+
 
 
 
