@@ -220,8 +220,7 @@ $$
 Coming soon .........!
 
 
-$$
-\frac{\partial P(x, t)}{\partial t} &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
+$$ \frac{\partial P(x, t)}{\partial t} &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
@@ -230,8 +229,7 @@ $$
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
-&= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
-$$
+&= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) $$
 
 
 Thanks to [@Jmkernes ](https://github.com/Jmkernes)
