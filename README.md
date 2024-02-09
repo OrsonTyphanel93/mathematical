@@ -177,6 +177,55 @@ The stationary solution $e^{-V}$ now becomes $q_\theta(x)$! We've shown we can g
 
 There exists a stationary solution found by setting $\partial_t p = 0$, which gives the equation $\mu p = \nabla D p => p \sim e^{\int  \mu / D}$. If we suppose there is some function such that $\mu = -\nabla V$ and if $D(x, t) = D = 2k_\text{B}T$, then we find the familiar Boltzmann distribution from physics $p_\text{eq} \sim e^{-V / k_\text{B}T}$. In other words, by cleverly setting $\mu(x, t) = -D \nabla ln q(x)$, we have produced an equation whose equilibrium solution will be the target distribution $q(x)$ for any $q(x)$.
 
+
+$$
+Let's assume \( P(x, t) \) is the probability density function (PDF) of a random variable \( X \) at time \( t \), and let's denote the noise functions as \( N_1(\cdot) \) and \( N_2(\cdot) \). We can write the Modified Fokker-Planck Equation as follows:
+$$
+
+
+$$
+\frac{\partial P(x, t)}{\partial t} &= \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right) \cdot N_1(\beta(t))\right] + \sigma(t) \cdot N_2(.),
+
+where the standard Fokker-Planck equation is:
+
+$$
+\frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot(b(x)P(x, t)) + \nabla^2 P(x, t),
+$$
+
+$$
+with \( b(x) \) being the drift coefficient and \( \nabla^2 \) denoting the Laplacian operator.
+$$
+
+Introduce the modifications to the drift and diffusion coefficients as per the given equation:
+
+
+$$
+b(x) &= \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right)\right], \\
+D(x) &= \sigma(t) \cdot N_2(.).
+
+$$
+
+Substitute these into the Fokker-Planck equation:
+
+$$
+\frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot\left[\exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.).
+$$
+
+Expand the product inside the divergence operator using the product rule:
+$$
+
+
+$$
+
+\frac{\partial P(x, t)}{\partial t} &= -\sum_{i=1}^{d} \frac{\partial}{\partial x_i}\left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.).
+$$
+
+Simplify the expression further by separating the deterministic and stochastic parts:
+
+$$
+\frac{\partial P(x, t)}{\partial t} &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.).
+$$
+
 Coming soon .........!
 
 Thanks to [@Jmkernes ](https://github.com/Jmkernes)
