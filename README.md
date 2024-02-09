@@ -216,10 +216,6 @@ $$
 \frac{\partial P(x, t)}{\partial t} = -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.).
 $$
 
-
-Coming soon .........!
-
-
 $$ 
 \begin{align*}
 \frac{\partial P(x, t)}{\partial t} &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.) \\
@@ -234,6 +230,27 @@ $$
 &= -\sum_{i=1}^{d} \left[\exp\left(\sqrt{\alpha(t)}\right) \left[x_i - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot \frac{\partial P(x, t)}{\partial x_i}\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
 \end{align*}
 $$
+
+$$
+\begin{align*}
+\frac{\partial P(x, t)}{\partial t} &= \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right) \cdot N_1(\beta(t))\right] + \sigma(t) \cdot N_2(.) \\
+\frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot(b(x)P(x, t)) + \nabla^2 P(x, t)
+\end{align*}
+
+\begin{align*}
+\frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot\left[\exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
+\end{align*}
+
+\begin{align*}
+\frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot\left[b(x)P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
+\end{align*}
+$$
+
+
+
+Coming soon .........!
+
+
 
 
 Thanks to [@Jmkernes ](https://github.com/Jmkernes)
