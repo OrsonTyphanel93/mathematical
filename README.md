@@ -179,12 +179,12 @@ There exists a stationary solution found by setting $\partial_t p = 0$, which gi
 
 
 Let's assume \( P(x, t) \) is the probability density function (PDF) of a random variable \( X \) at time \( t \), and let's denote the noise functions as \( N_1(\cdot) \) and \( N_2(\cdot) \). We can write the Modified Fokker-Planck Equation as follows:
-
+$$
 \begin{align*}
 \frac{\partial P(x, t)}{\partial t} &= \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right) \cdot N_1(\beta(t))\right] + \sigma(t) \cdot N_2(.) \\
 \frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot(b(x)P(x, t)) + \nabla^2 P(x, t),
 \end{align*}
-
+$$
 where \( b(x) \) is the drift coefficient and \( \nabla^2 \) denotes the Laplacian operator.
 
 Introduce the modifications to the drift and diffusion coefficients as per the given equation:
