@@ -236,11 +236,15 @@ $$
 \frac{\partial P(x, t)}{\partial t} &= \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right) \cdot N_1(\beta(t))\right] + \sigma(t) \cdot N_2(.) \\
 \frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot(b(x)P(x, t)) + \nabla^2 P(x, t)
 \end{align*}
+$$
 
+$$
 \begin{align*}
 \frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot\left[\exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right)\right] \cdot P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
 \end{align*}
+$$
 
+$$
 \begin{align*}
 \frac{\partial P(x, t)}{\partial t} &= -\nabla \cdot\left[b(x)P(x, t)\right] + \nabla^2 P(x, t) + \sigma(t) \cdot N_2(.)
 \end{align*}
