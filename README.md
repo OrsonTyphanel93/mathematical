@@ -177,9 +177,9 @@ The stationary solution $e^{-V}$ now becomes $q_\theta(x)$! We've shown we can g
 
 There exists a stationary solution found by setting $\partial_t p = 0$, which gives the equation $\mu p = \nabla D p => p \sim e^{\int  \mu / D}$. If we suppose there is some function such that $\mu = -\nabla V$ and if $D(x, t) = D = 2k_\text{B}T$, then we find the familiar Boltzmann distribution from physics $p_\text{eq} \sim e^{-V / k_\text{B}T}$. In other words, by cleverly setting $\mu(x, t) = -D \nabla ln q(x)$, we have produced an equation whose equilibrium solution will be the target distribution $q(x)$ for any $q(x)$.
 
+###proof of the Fokker Planck model contained in the article itself 
 
-
-Let's assume \( P(x, t) \) is the probability density function (PDF) of a random variable \( X \) at time \( t \), and let's denote the noise functions as \( N_1(\cdot) \) and \( N_2(\cdot) \). We can write the Modified Fokker-Planck Equation as follows:
+Let's assume $$( P(x,t) )$$ is the probability density function (PDF) of a random variable $$(X)$$ at time $$(t)$$, and let's denote the noise functions as $$(N_1(\cdot))$$ and $$(N_2(\cdot))$$. We can write the Modified Fokker-Planck Equation as follows:
 
 $$
 \frac{\partial P(x, t)}{\partial t} = \exp\left(\sqrt{\alpha(t)}\right) \left[x - \exp\left(\sqrt{1 - \alpha(t)}\right) \cdot N_1(\beta(t))\right] + \sigma(t) \cdot N_2(.)
